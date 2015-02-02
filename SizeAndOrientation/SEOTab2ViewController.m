@@ -46,11 +46,20 @@
 	
 	NSMutableString*	logText	= [NSMutableString string];
 	
+	UIInterfaceOrientation	statusBarOrientation	= [UIApplication sharedApplication].statusBarOrientation;
+	[logText appendFormat:@"[UIApplication sharedApplication].statusBarOrientation .. %d\n", (int)statusBarOrientation];
+	
 	CGRect	mainScreenBounds	= [UIScreen mainScreen].bounds;
 	[logText appendFormat:@"[UIScreen mainScreen].bounds .. %@\n", NSStringFromCGRect(mainScreenBounds)];
 	
-	UIInterfaceOrientation	statusBarOrientation	= [UIApplication sharedApplication].statusBarOrientation;
-	[logText appendFormat:@"[UIApplication sharedApplication].statusBarOrientation .. %d\n", (int)statusBarOrientation];
+	CGRect	selfViewFrame	= self.view.frame;
+	[logText appendFormat:@"self.view.frame .. %@\n", NSStringFromCGRect(selfViewFrame)];
+	
+	CGRect	tabBarFrame	= self.tabBarController.tabBar.frame;
+	[logText appendFormat:@"self.tabBarController.tabBar.frame .. %@\n", NSStringFromCGRect(tabBarFrame)];
+	
+	CGRect viewFrame = CGRectApplyAffineTransform(self.view.frame, self.view.transform);
+	[logText appendFormat:@"viewFrame .. %@\n", NSStringFromCGRect(viewFrame)];
 
 	
 	textview.text	= logText;
