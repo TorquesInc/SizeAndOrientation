@@ -1,0 +1,3 @@
+# SizeAndOrientation
+
+iOSのサイズ取得メソッドを確認するプロジェクトファイル
